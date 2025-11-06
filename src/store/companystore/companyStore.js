@@ -3,6 +3,7 @@ import {create} from 'zustand'
 import axios from 'axios'
 
 const dev_api_url = 'http://localhost:4000/'
+const prod_api_url = 'https://xenial-edyth-spakaknel-65446e30.koyeb.app/'
 
 export const useCompanyStore = create((set,get) => ({
     bookings: [],
@@ -14,11 +15,10 @@ export const useCompanyStore = create((set,get) => ({
         try {
             const token = getToken()
             const response = await axios.get(
-                `${dev_api_url}api/company/reservations`,
+                `${prod_api_url}api/company/reservations`,
                 {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
+                    headers: { "Content-Type": "application/json" },
+                    withCredentials: true, 
                 }
             )
             console.log(response.data)
