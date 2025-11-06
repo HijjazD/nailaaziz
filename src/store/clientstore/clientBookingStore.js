@@ -3,6 +3,7 @@ import { create } from 'zustand'
 import axios from 'axios'
 
 const dev_api_url = 'http://localhost:4000/'
+const prod_api_url = 'https://xenial-edyth-spakaknel-65446e30.koyeb.app/'
 
 export const useClientBookingStore = create((set) => ({
     loading: false,
@@ -31,7 +32,7 @@ export const useClientBookingStore = create((set) => ({
             set({ loading: true, error: null, success: false })
 
             const response = await axios.post(
-                `${dev_api_url}api/client/book-service`,
+                `${prod_api_url}api/client/book-service`,
                 bookingData,
                 {
                     headers: {'Content-Type': 'application/json'},
@@ -60,7 +61,7 @@ export const useClientBookingStore = create((set) => ({
         try {
 
         const response = await axios.get(
-            `${dev_api_url}api/client/my-bookings`,
+            `${prod_api_url}api/client/my-bookings`,
             {
                     headers: {'Content-Type': 'application/json'},
                     withCredentials: true
@@ -77,7 +78,7 @@ export const useClientBookingStore = create((set) => ({
     fetchReviews: async () => {
         try {
             const response = await axios.get(
-                `${dev_api_url}api/client/getreview`
+                `${prod_api_url}api/client/getreview`
             )
             set({ reviews: response.data })
         } catch (error) {
