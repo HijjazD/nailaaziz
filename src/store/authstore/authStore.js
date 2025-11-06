@@ -4,7 +4,7 @@ import { getToken, saveToken, saveUser } from '../../util/jwtToken'
 import { jwtDecode } from 'jwt-decode'
 
 const dev_api_url = 'http://localhost:4000'
-const prod_api_url = 'https://xenial-edyth-spakaknel-65446e30.koyeb.app/'
+const prod_api_url = 'https://xenial-edyth-spakaknel-65446e30.koyeb.app'
 
 const AUTH_HEADER = "authorization";
 
