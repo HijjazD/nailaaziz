@@ -4,7 +4,7 @@ import { getToken, saveToken, saveUser } from '../../util/jwtToken'
 import { jwtDecode } from 'jwt-decode'
 
 const dev_api_url = 'http://localhost:4000'
-const prod_api_url = 'https://monetary-meta-hijjazdanial-cf32cfcb.koyeb.app/'
+const prod_api_url = 'https://xenial-edyth-spakaknel-65446e30.koyeb.app/'
 
 const AUTH_HEADER = "authorization";
 
@@ -21,7 +21,7 @@ export const useAuthStore = create((set, get) => ({
         set({isLoading:true, error:null})
         try {
             const response = await axios.post(
-                `${dev_api_url}/signup`,
+                `${prod_api_url}/signup`,
                 signupData,
                 {
                     headers: { "Content-Type": "application/json", "Accept": "application/json"},
@@ -47,7 +47,7 @@ export const useAuthStore = create((set, get) => ({
 
         try {
             const response = await axios.post(
-                `${dev_api_url}/verify-token`,
+                `${prod_api_url}/verify-token`,
                 { code },
                 {
                     headers: {
@@ -94,7 +94,7 @@ export const useAuthStore = create((set, get) => ({
         const email = get().verifiedEmail;
 
         const response = await axios.post(
-            `${dev_api_url}/create-password`, 
+            `${prod_api_url}/create-password`, 
             {
                 email,
                 password,
@@ -125,7 +125,7 @@ export const useAuthStore = create((set, get) => ({
             };
 
             const response = await axios.post(
-                `${dev_api_url}/login`,
+                `${prod_api_url}/login`,
                 loginPayload,
                 {
                     headers: { "Content-Type": "application/json" },
@@ -158,7 +158,7 @@ export const useAuthStore = create((set, get) => ({
     logout: async() => {
         try {
             const response = await axios.post(
-                `${dev_api_url}/logout`,
+                `${prod_api_url}/logout`,
                 {},
                 { withCredentials: true }
             )
@@ -172,7 +172,7 @@ export const useAuthStore = create((set, get) => ({
 
         try {
             const response = await axios.post(
-                `${dev_api_url}/forgot-password`,
+                `${prod_api_url}/forgot-password`,
                 { email },
                 {
                     headers: {
@@ -207,7 +207,7 @@ export const useAuthStore = create((set, get) => ({
 
         try {
             const response = await axios.post(
-            `${dev_api_url}/reset-password/${token}`,
+            `${prod_api_url}/reset-password/${token}`,
             { newPassword },
             {
                 headers: {
@@ -237,7 +237,7 @@ export const useAuthStore = create((set, get) => ({
 
     checkAuth: async () => {
         try {
-            const response = await axios.get(`${dev_api_url}/check-auth`, {
+            const response = await axios.get(`${prod_api_url}/check-auth`, {
                 withCredentials: true, // important: allows sending the JWT cookie
             });
 
