@@ -26,9 +26,12 @@ const NavbarUser = () => {
         
         {/* Center (Nibbles) */}
         <div className="absolute left-1/2 transform -translate-x-1/2">
-          <a href="#hero" className="text-amber-50 font-semibold">
-            Kaknel
-          </a>
+          <Link
+            to="/"
+            className="text-amber-50 font-semibold font-gabrielle"
+          >
+            Naila's Spa
+          </Link>
         </div>
         
         {/* Right section */}
@@ -46,9 +49,12 @@ const NavbarUser = () => {
       <div className='md:hidden flex flex-col items-center py-4'>
         {/* Nibbles on top */}
         <div className="mb-4">
-          <a href="#hero" className="text-amber-50 font-semibold text-lg">
-            Kaknel
-          </a>
+          <Link
+            to="/"
+            className="text-amber-50 font-semibold font-gabrielle"
+          >
+            Naila's Spa
+          </Link>
         </div>
         
         {/* Menu items below */}
