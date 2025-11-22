@@ -15,7 +15,7 @@ export const useCompanyStore = create((set,get) => ({
         try {
             const token = getToken()
             const response = await axios.get(
-                `${dev_api_url}api/company/reservations`,
+                `${prod_api_url}api/company/reservations`,
                 {
                     headers: { "Content-Type": "application/json" },
                     withCredentials: true,
@@ -32,7 +32,7 @@ export const useCompanyStore = create((set,get) => ({
         set({ loading: true, error: null });
         try {
             const response = await axios.get(
-            `${dev_api_url}api/company/booking/${id}/${status}`,
+            `${prod_api_url}api/company/booking/${id}/${status}`,
             {
                 headers: { "Content-Type": "application/json" },
                 withCredentials: true,
@@ -56,7 +56,7 @@ export const useCompanyStore = create((set,get) => ({
         set({ loading: true, error: null });
         try {
             const response = await axios.put(
-            `${dev_api_url}api/company/update-booking`,
+            `${prod_api_url}api/company/update-booking`,
             updatedData, // directly send reservationDTO
             {
                 headers: { "Content-Type": "application/json" },
