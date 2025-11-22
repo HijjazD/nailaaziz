@@ -110,7 +110,9 @@ const HeroPage = () => {
                     </h1>
                 </div>
                 <div className="word " id='word-2'>
-                    <h1 className='text-4xl text-white'>spa</h1>
+                    <h1>
+                        <span className='font-gabrielle text-white text-5xl'>spa</span>
+                    </h1>
                 </div>
             </div>
 
@@ -124,6 +126,10 @@ const HeroPage = () => {
                 <div className="count flex">
                     <div className="digit"><h1>0</h1></div>
                     <div className="digit"><h1>0</h1></div>
+                </div>
+                <div className="count flex">
+                    <div className="digit"><h1>9</h1></div>
+                    <div className="digit"><h1>8</h1></div>
                 </div>
                 {/* <div className="count flex">
                     <div className="digit"><h1>2</h1></div>
