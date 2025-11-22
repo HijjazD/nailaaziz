@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import gsap from 'gsap'
-
+import { Link } from "react-router-dom";
 const NavbarCompany = () => {
   return (
     <section id='navbar' className='absolute top-0 left-0 w-full z-[50] bg-white/10'>
