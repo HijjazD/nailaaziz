@@ -160,15 +160,25 @@ const HeroPage = () => {
 
 
             <div className="header w-full h-full pt-[25svh] flex flex-col items-center gap-6">
-                <div className="hero-copy">
+                <div className="hero-copy flex flex-col items-center gap-2">
                     <div className="line">
-                        <h1 className='text-white'><span className='text-white'>Rooted</span> in care,</h1>
+                        <h1 className='text-white text-6xl md:text-8xl font-light tracking-wide'>
+                            <span className='font-gabrielle text-7xl md:text-9xl'>Rooted</span> in care,
+                        </h1>
                     </div>
                     <div className="line">
-                        <h1 className='text-white'>grown with <span className='text-white'>kindness</span></h1>
+                        <h1 className='text-white text-6xl md:text-8xl font-light tracking-wide'>
+                            grown with <span className='font-gabrielle text-7xl md:text-9xl'>kindness</span>
+                        </h1>
                     </div>
                 </div>
-                
+
+                <button
+                    onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="mt-8 px-8 py-4 bg-amber-50 text-gray-800 font-semibold text-lg rounded-full hover:bg-amber-100 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+                >
+                    Book Now
+                </button>
             </div>
 
             <div className="cta absolute left-1/2 bottom-[3em] -translate-x-1/2 flex items-center justify-center gap-6 w-fit px-8 py-3 bg-white/90 backdrop-blur-md rounded-full shadow-md">
