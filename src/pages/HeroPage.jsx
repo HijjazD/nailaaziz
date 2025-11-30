@@ -1,10 +1,10 @@
 import {useEffect} from 'react'
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
-
+import { HeroScene } from '../components/HeroScene';
 
 
 import gsap from "gsap";
-import CustomEase from "gsap/CustomEase";
+
 
 const HeroPage = () => {
 
@@ -80,7 +80,7 @@ const HeroPage = () => {
             duration: 1,
             stagger: 0.1,
             delay: 0.75,
-            onStart: () => gsap.to(".hero-img", { scale: 1, duration: 2, ease: "hop" }),
+            //onStart: () => gsap.to(".hero-img", { scale: 1, duration: 2, ease: "hop" }),
         });
 
         tl.to(".loader", {
@@ -110,9 +110,7 @@ const HeroPage = () => {
                     </h1>
                 </div>
                 <div className="word " id='word-2'>
-                    <h1>
-                        <span className='font-gabrielle text-white text-5xl'>spa</span>
-                    </h1>
+                    <h1 className='font-gabrielle text-5xl text-white'>spa</h1>
                 </div>
             </div>
 
@@ -126,10 +124,6 @@ const HeroPage = () => {
                 <div className="count flex">
                     <div className="digit"><h1>0</h1></div>
                     <div className="digit"><h1>0</h1></div>
-                </div>
-                <div className="count flex">
-                    <div className="digit"><h1>9</h1></div>
-                    <div className="digit"><h1>8</h1></div>
                 </div>
                 {/* <div className="count flex">
                     <div className="digit"><h1>2</h1></div>
@@ -151,34 +145,21 @@ const HeroPage = () => {
         </div>
         
         <div className="container relative w-screen h-screen overflow-hidden">
-            <div className="hero-img absolute top-0 w-full h-full overflow-hidden z-[-1]">
-                <img 
-                    className='w-full h-full object-cover'
-                    src='/images/menu.png'
-                />
+            <div className="hero-img absolute top-0 w-full h-full overflow-hidden z-[-1] scale-110">
+                <HeroScene/>
             </div>
 
 
             <div className="header w-full h-full pt-[25svh] flex flex-col items-center gap-6">
-                <div className="hero-copy flex flex-col items-center gap-2">
+                <div className="hero-copy">
                     <div className="line">
-                        <h1 className='text-white text-6xl md:text-8xl font-light tracking-wide'>
-                            <span className='font-gabrielle text-7xl md:text-9xl'>Rooted</span> in care,
-                        </h1>
+                        <h1 className='text-white'><span className='text-white'>Rooted</span> in care,</h1>
                     </div>
                     <div className="line">
-                        <h1 className='text-white text-6xl md:text-8xl font-light tracking-wide'>
-                            grown with <span className='font-gabrielle text-7xl md:text-9xl'>kindness</span>
-                        </h1>
+                        <h1 className='text-white'>grown with <span className='text-white'>kindness</span></h1>
                     </div>
                 </div>
-
-                <button
-                    onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="mt-8 px-8 py-4 bg-amber-50 text-gray-800 font-semibold text-lg rounded-full hover:bg-amber-100 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
-                >
-                    Book Now
-                </button>
+                
             </div>
 
             <div className="cta absolute left-1/2 bottom-[3em] -translate-x-1/2 flex items-center justify-center gap-6 w-fit px-8 py-3 bg-white/90 backdrop-blur-md rounded-full shadow-md">
