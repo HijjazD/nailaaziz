@@ -80,7 +80,7 @@ const HeroPage = () => {
             duration: 1,
             stagger: 0.1,
             delay: 0.75,
-            onStart: () => gsap.to(".hero-img", { scale: 1, duration: 2, ease: "hop" }),
+            //onStart: () => gsap.to(".hero-img", { scale: 1, duration: 2, ease: "hop" }),
         });
 
         tl.to(".loader", {
