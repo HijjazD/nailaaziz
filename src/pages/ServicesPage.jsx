@@ -2,12 +2,10 @@ import {useEffect} from 'react'
 import gsap from 'gsap';
 import {ScrollTrigger} from 'gsap/all'
 import SplitType from "split-type"; 
-import { Pin } from 'lucide-react';
 
 import { servicesCopy } from '../constants/services';
 
 gsap.registerPlugin(ScrollTrigger);
-
 
 const ServicesPage = () => {
     useEffect(() => {
@@ -20,17 +18,14 @@ const ServicesPage = () => {
         const serviceImg = document.querySelector(".service-img");
         const serviceCopy = document.querySelector(".service-copy p");
 
-
         const isMobile = window.innerWidth <= 470;
         const serviceHeight = isMobile ? 25 : 38;
         const imgHeight = 250;
 
         if (indicator) {
-        indicator.style.height = `${serviceHeight}px`;
-      }
+            indicator.style.height = `${serviceHeight}px`;
+        }
 
-
-      
         let currentSplitText = new SplitType(serviceCopy, { types: "lines" });
 
         const measureContainer = document.createElement("div");
@@ -40,7 +35,7 @@ const ServicesPage = () => {
             height: auto;
             width: auto;
             white-space: nowrap;
-            font-family: "PP NeueBit";
+            font-family: serif;
             font-size: 30px;
             font-weight: 600;
             text-transform: uppercase;
@@ -50,7 +45,7 @@ const ServicesPage = () => {
 
         const serviceWidths = Array.from(services).map((service) => {
             measureContainer.textContent = service.querySelector("p").textContent;
-            return measureContainer.offsetWidth + 5 ;
+            return measureContainer.offsetWidth + 5;
         });
 
         document.body.removeChild(measureContainer);
@@ -61,7 +56,6 @@ const ServicesPage = () => {
             left: "50%",
         })
 
-        const scrollPerService = window.innerHeight;
         let currentIndex = 0;
 
         const animateTextChange = (index) => {
@@ -95,8 +89,6 @@ const ServicesPage = () => {
                             ease: "power3.out",
                             onComplete: resolve,
                         });
-
-                        
                     },
                 });
             });
@@ -114,7 +106,7 @@ const ServicesPage = () => {
                 const clampedIndex = Math.min(services.length - 1, activeIndex)
 
                 if (clampedIndex !== currentIndex) {
-                    currentIndex = clampedIndex ;
+                    currentIndex = clampedIndex;
 
                     services.forEach((s) => s.classList.remove('active'))
                     services[clampedIndex].classList.add('active')
@@ -149,53 +141,92 @@ const ServicesPage = () => {
         })
 
         const handleResize = () => ScrollTrigger.refresh()
-      window.addEventListener('resize', handleResize)
+        window.addEventListener('resize', handleResize)
 
-      return () => {
-        window.removeEventListener('resize', handleResize)
-        ScrollTrigger.getAll().forEach((st) => st.kill())
-      }
+        return () => {
+            window.removeEventListener('resize', handleResize)
+            ScrollTrigger.getAll().forEach((st) => st.kill())
+        }
     });
 
-    return () => ctx.revert(); // Cleanup on unmount
+    return () => ctx.revert();
 }, [])
+
   return (
-    <section id='services' className='container1 flex'>
+    <section id='services' className='container1 flex bg-white min-h-screen'>
         <div className="col flex-1 flex flex-col justify-center items-center">
             <div className="services relative flex flex-col items-center">
-                <div className="indicator absolute top-0 left-0 w-full h-[38px] translate-y-0 bg-black z-[-1]"></div>
-                <div className="service active"><p>Our Services</p></div>
-                <div className="service"><p>Spa and Wellness</p></div>
-                <div className="service" ><p>Confinement care</p></div>
-                <div className="service"><p>Confinement food</p></div>
-                <div className="service"><p>Sport Therapy</p></div>
-            </div>
-        </div>
-        <div className="col flex-1 flex flex-col justify-center items-center gap-8">
-            <div className="service-img-wrapper relative w-[60%] h-[250px] overflow-hidden">
-                <div className="service-img w-full h-[2000px] translate-y-0 will-change-transform">
-                    <div className="img w-full h-[250px]"><img className='w-full h-full object-cover' src='/images/menu.png' alt=''/></div>
-                    <div className="img w-full h-[250px]"><img className='w-full h-full object-cover' src='/images/menu.png' alt=''/></div>
-                    <div className="img w-full h-[250px]"><img className='w-full h-full object-cover' src='/images/menu.png' alt=''/></div>
-                    <div className="img w-full h-[250px]"><img className='w-full h-full object-cover' src='/images/menu.png' alt=''/></div>
+                <div className="indicator absolute top-0 left-0 w-full h-[38px] translate-y-0 bg-[#C5A059] z-[-1] rounded-full"></div>
+                <div className="service active">
+                    <p className="font-serif text-stone-900 font-semibold uppercase tracking-wide transition-colors">
+                        Our Services
+                    </p>
+                </div>
+                <div className="service">
+                    <p className="font-serif text-stone-600 font-semibold uppercase tracking-wide transition-colors hover:text-stone-900">
+                        Spa and Wellness
+                    </p>
+                </div>
+                <div className="service">
+                    <p className="font-serif text-stone-600 font-semibold uppercase tracking-wide transition-colors hover:text-stone-900">
+                        Confinement care
+                    </p>
+                </div>
+                <div className="service">
+                    <p className="font-serif text-stone-600 font-semibold uppercase tracking-wide transition-colors hover:text-stone-900">
+                        Confinement food
+                    </p>
+                </div>
+                <div className="service">
+                    <p className="font-serif text-stone-600 font-semibold uppercase tracking-wide transition-colors hover:text-stone-900">
+                        Sport Therapy
+                    </p>
                 </div>
             </div>
-            <div className="service-copy w-[60%]">
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium iste sequi sapiente assumenda ullam in repudiandae, a tempora neque exercitationem maxime eum nemo fugiat!</p>
+        </div>
+
+        <div className="col flex-1 flex flex-col justify-center items-center gap-8">
+            <div className="service-img-wrapper relative w-[60%] h-[250px] overflow-hidden rounded-3xl shadow-lg">
+                <div className="service-img w-full h-[2000px] translate-y-0 will-change-transform">
+                    <div className="img w-full h-[250px]">
+                        <img className='w-full h-full object-cover' src='https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800' alt='Spa services'/>
+                    </div>
+                    <div className="img w-full h-[250px]">
+                        <img className='w-full h-full object-cover' src='https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800' alt='Wellness treatments'/>
+                    </div>
+                    <div className="img w-full h-[250px]">
+                        <img className='w-full h-full object-cover' src='https://images.unsplash.com/photo-1519824145371-296894a0daa9?w=800' alt='Confinement care'/>
+                    </div>
+                    <div className="img w-full h-[250px]">
+                        <img className='w-full h-full object-cover' src='https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=800' alt='Nutritious meals'/>
+                    </div>
+                    <div className="img w-full h-[250px]">
+                        <img className='w-full h-full object-cover' src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800' alt='Sports therapy'/>
+                    </div>
+                </div>
             </div>
+
+            <div className="service-copy w-[60%]">
+                <p className="text-stone-600 text-lg leading-relaxed">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium iste sequi sapiente assumenda ullam in repudiandae, a tempora neque exercitationem maxime eum nemo fugiat!
+                </p>
+            </div>
+
+            <button className="mt-4 px-8 py-3 bg-[#C5A059] text-white font-bold tracking-widest uppercase rounded-full hover:bg-stone-900 transition-all shadow-md hover:shadow-lg">
+                Book Now
+            </button>
         </div>
 
-        <div className="progress-bar absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[2.5px] h-[60%] bg-[#d5d5d5] ">
-            <div className="progress absolute top-0 left-0 w-full h-full bg-black origin-top scale-y-0 will-change-transform"></div>
+        <div className="progress-bar absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[2.5px] h-[60%] bg-stone-200">
+            <div className="progress absolute top-0 left-0 w-full h-full bg-[#C5A059] origin-top scale-y-0 will-change-transform"></div>
         </div>
 
-        <div className="index">
-            <span id='current-count'>1</span>
-            <span className='separator'></span>
-            <span className='total-count'>5</span>
+        <div className="index absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-3 text-stone-900 font-serif text-xl">
+            <span id='current-count' className="font-bold text-[#C5A059]">1</span>
+            <span className='separator w-8 h-[2px] bg-stone-300'></span>
+            <span className='total-count text-stone-400'>5</span>
         </div>
     </section>
-    
   )
 }
 
