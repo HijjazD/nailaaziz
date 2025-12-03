@@ -1,18 +1,20 @@
 export const servicesCopy = [
     [
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo accusamus delectus perspiciatis odit? Fuga, illum ad. Quod, deserunt veritatis? Commodi autem iste eveniet aperiam laboriosam!"
+        "Discover our comprehensive range of wellness treatments designed to restore balance and vitality. From traditional therapies to modern techniques, each service is crafted to nurture your well-being."
     ],
     [
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid sed impedit fugiat cupiditate, quaerat neque repellat qui eligendi necessitatibus officiis laudantium ipsum omnis!"
+        "Indulge in rejuvenating spa treatments including therapeutic massage, herbal baths, facial therapies, and aromatherapy. Our skilled therapists create personalized experiences to relax your body and refresh your spirit."
     ],
     [
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, dolorem? Cupiditate consectetur minima doloribus dignissimos ad laborum quaerat. Amet excepturi qui cupiditate aliquid eligendi!"
+        "Traditional postnatal care rooted in Malaysian heritage. Our expert confinement services include gentle massage (urut), herbal binding (bengkung), warming therapies, and holistic support for your postpartum recovery journey."
     ],
     [
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo accusamus delectus perspiciatis odit? Fuga, illum ad. Quod, deserunt veritatis? Commodi autem iste eveniet aperiam laboriosam!"
+        "Nourishing, specially prepared meals designed for postnatal recovery. Our traditional confinement menu features warming soups, herbal tonics, and balanced nutrition to support healing, lactation, and restore your vitality."
+    ],
+    [
+        "Specialized therapeutic treatments for athletes and active individuals. Our sports therapy includes deep tissue massage, injury rehabilitation, muscle recovery techniques, and mobility enhancement to optimize your performance."
     ]
 ]
-
 const service1 = {
     id: "1",
     name: "Spa and Wellness",
