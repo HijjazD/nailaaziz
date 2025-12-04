@@ -337,20 +337,10 @@ const Contact_Review = () => {
 
         {/* CARD 3 & 4 - Left as placeholders */}
         <div id='card-3' className="card-contact-review">
-            <div className="card-inner bg-green-300">
-                <div className="card-info">
-                    <p>Card 3 - Placeholder</p>
-                </div>
-            </div>
+  
         </div>
 
-        <div id='card-4' className="card-contact-review">
-            <div className="card-inner bg-purple-400">
-                <div className="card-info">
-                    <p>Card 4 - Placeholder</p>
-                </div>
-            </div>
-        </div>
+      
     </section>
   )
 }
