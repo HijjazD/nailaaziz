@@ -1,6 +1,7 @@
 import {useEffect} from 'react'
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { HeroScene } from '../components/HeroScene';
+import { ChevronDown } from 'lucide-react';
 
 
 import gsap from "gsap";
@@ -80,7 +81,7 @@ const HeroPage = () => {
             duration: 1,
             stagger: 0.1,
             delay: 0.75,
-            //onStart: () => gsap.to(".hero-img", { scale: 1, duration: 2, ease: "hop" }),
+            //onStart: () => gsap.to(".hero-img", { scale: 1.1, duration: 2, ease: "power2.inOut" }),
         });
 
         tl.to(".loader", {
@@ -145,30 +146,46 @@ const HeroPage = () => {
         </div>
         
         <div className="container relative w-screen h-screen overflow-hidden">
-            <div className="hero-img absolute top-0 w-full h-full overflow-hidden z-[-1] scale-110">
+            <div className="hero-img absolute top-0 w-full h-full overflow-hidden scale-110">
                 <HeroScene/>
             </div>
 
 
             <div className="header w-full h-full pt-[25svh] flex flex-col items-center gap-6">
                 <div className="hero-copy">
-                    <div className="line">
-                        <h1 className='text-white'><span className='text-white'>Rooted</span> in care,</h1>
+                    <div className="line ">
+                        <h1 className='font-serif text-5xl md:text-6xl lg:text-7xl leading-tight text-black drop-shadow-sm'>
+                            <span className='italic font-light'>Rooted</span> in care,
+                        </h1>
                     </div>
                     <div className="line">
-                        <h1 className='text-white'>grown with <span className='text-white'>kindness</span></h1>
+                        <h1 className='font-serif text-5xl md:text-6xl lg:text-7xl leading-tight text-black drop-shadow-sm'>
+                            grown with <span className='italic text-[#C5A059] drop-shadow-md'>kindness</span>
+                        </h1>    
                     </div>
+                    
                 </div>
                 
             </div>
 
-            <div className="cta absolute left-1/2 bottom-[3em] -translate-x-1/2 flex items-center justify-center gap-6 w-fit px-8 py-3 bg-white/90 backdrop-blur-md rounded-full shadow-md">
+            <div className="cta absolute left-1/2 bottom-[10em] -translate-x-1/2 flex items-center justify-center gap-6 w-fit px-8 py-3 bg-white/90 backdrop-blur-md rounded-full shadow-md">
                 <FaFacebook size={28} className="text-[#1877F2] hover:scale-110 transition-transform duration-200 cursor-pointer" />
                 <FaInstagram size={28} className="text-[#E4405F] hover:scale-110 transition-transform duration-200 cursor-pointer" />
                 <FaLinkedin size={28} className="text-[#0A66C2] hover:scale-110 transition-transform duration-200 cursor-pointer" />
                 <FaTwitter size={28} className="text-[#1DA1F2] hover:scale-110 transition-transform duration-200 cursor-pointer" />
             </div>
-
+            
+            <div 
+                
+                className="discover-arrow absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer group z-20"
+            >
+                <span className="text-[#C5A059] text-sm font-semibold uppercase tracking-widest group-hover:text-stone-900 transition-colors">
+                    Discover
+                </span>
+                <div className="animate-bounce">
+                    <ChevronDown size={32} className="text-[#C5A059] group-hover:text-stone-900 transition-colors" />
+                </div>
+            </div>
         </div>
     </section>
   )
