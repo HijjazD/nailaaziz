@@ -29,6 +29,7 @@ const Contact_Review = () => {
     }, [])
 
     useEffect(() => {
+        if (window.innerWidth < 768) return; 
         let ctx = gsap.context(() => {
             const cards = gsap.utils.toArray(".card-contact-review")
 
