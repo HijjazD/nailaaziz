@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { service1, service2, service3, service4 } from '../constants/services';
+import { Sparkles, Calendar, Clock } from 'lucide-react';
 
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
 import { useClientBookingStore } from '../store/clientstore/clientBookingStore';
-
 import { useNavigate } from 'react-router-dom';
 
 const ClientDashboard = () => {
@@ -48,71 +48,100 @@ const ClientDashboard = () => {
     if (success) {
       setTimeout(() => {
         closeModal();
-        navigate('/client/dashboard/mybookings'); // ✅ correct path
-        resetBookingState(); // optional cleanup from zustand
+        navigate('/client/dashboard/mybookings');
+        resetBookingState();
       }, 1500);
     }
-  }, [success, navigate, closeModal, resetBookingState]);
-
+  }, [success, navigate, resetBookingState]);
 
   return (
-    <section className='w-screen min-h-screen bg-amber-300 pt-30 pl-2.5 pr-5'>
-      {[service1, service2, service3, service4].map((service, index) => (
-        <div key={index} className="relative w-full max-w-5xl mx-auto mb-6">
-          {/* Shadow card */}
-          <div className="absolute top-2 left-2 w-full h-[310px] bg-black rounded-3xl"></div>
+    <section className='w-screen min-h-screen bg-[#F9F8F4] pt-24 pb-12 px-6 md:px-12'>
+      {/* Page Header */}
+      <div className="max-w-6xl mx-auto mb-12 text-center">
+        <div className="flex items-center justify-center gap-2 mb-4">
+          <Sparkles size={24} className="text-[#C5A059]" />
+          <h1 className="font-serif text-4xl md:text-5xl text-stone-900 font-bold">
+            Book Your Experience
+          </h1>
+        </div>
+        <p className="text-stone-600 text-lg max-w-2xl mx-auto">
+          Choose from our curated wellness services designed to restore balance and vitality.
+        </p>
+      </div>
 
-          {/* Main card */}
-          <div className="relative w-full bg-blue-400 rounded-3xl h-[300px] border-4 border-black">
-            <div className="p-6">
-              <h3 className="text-2xl font-bold text-white">{service.name}</h3>
-              <p className="text-white mt-2">{service.description}</p>
-            </div>
-            <div className="absolute bottom-6 left-6">
-              <button
-                onClick={() => openModal(service)}
-                className="bg-black text-white px-6 py-3 rounded-xl font-bold hover:bg-gray-800 transition-colors"
-              >
-                Book Appointment
-              </button>
+      {/* Service Cards */}
+      <div className="max-w-6xl mx-auto space-y-8">
+        {[service1, service2, service3, service4].map((service, index) => (
+          <div key={index} className="group relative">
+            {/* Shadow effect */}
+            <div className="absolute top-2 left-2 w-full h-full bg-stone-900 rounded-3xl opacity-20"></div>
+
+            {/* Main card */}
+            <div className="relative w-full bg-white rounded-3xl border-2 border-stone-200 overflow-hidden hover:border-[#C5A059] transition-all duration-300 hover:shadow-xl">
+              <div className="p-8 md:p-10">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                  <div className="flex-1">
+                    <h3 className="font-serif text-2xl md:text-3xl font-bold text-stone-900 mb-3">
+                      {service.name}
+                    </h3>
+                    <p className="text-stone-600 text-base md:text-lg leading-relaxed max-w-2xl">
+                      {service.description}
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => openModal(service)}
+                    className="px-8 py-3 bg-[#C5A059] text-white rounded-full font-bold uppercase tracking-widest text-sm hover:bg-stone-900 transition-all shadow-md hover:shadow-lg whitespace-nowrap"
+                  >
+                    Book Now
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
 
       {/* Modal */}
       {isModalOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
+          className="fixed inset-0 bg-stone-900/70 backdrop-blur-sm flex justify-center items-center z-50 p-6"
           onClick={(e) => e.target === e.currentTarget && closeModal()}
         >
-          <div className="bg-white rounded-2xl p-8 w-[90%] max-w-md relative shadow-lg">
-            <h2 className="text-2xl font-bold mb-4 text-center text-black">
-              Book Appointment
-            </h2>
-            <p className="text-gray-700 mb-6 text-center">
-              You are booking: <strong>{selectedService?.name}</strong>
-            </p>
+          <div className="bg-white rounded-3xl p-8 md:p-10 w-full max-w-lg relative shadow-2xl border-2 border-stone-200">
+            {/* Header with icon */}
+            <div className="text-center mb-6">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-[#F9F8F4] rounded-full mb-4">
+                <Sparkles size={28} className="text-[#C5A059]" />
+              </div>
+              <h2 className="font-serif text-3xl font-bold text-stone-900 mb-2">
+                Book Appointment
+              </h2>
+              <p className="text-stone-600 text-lg">
+                {selectedService?.name}
+              </p>
+            </div>
 
             {/* Date Picker */}
-            <div className="flex flex-col items-center mb-6">
-              <label className="font-semibold text-gray-800 mb-2">
-                Select appointment date:
+            <div className="mb-6">
+              <label className="flex items-center gap-2 font-semibold text-stone-900 mb-3 text-sm uppercase tracking-wider">
+                <Calendar size={18} className="text-[#C5A059]" />
+                Select Date
               </label>
               <DatePicker
                 selected={selectedDate}
                 onChange={(date) => setSelectedDate(date)}
                 dateFormat="dd/MM/yyyy"
                 minDate={new Date()}
-                className="border border-gray-300 rounded-lg px-4 py-2 w-full text-center"
+                className="border-2 border-stone-300 rounded-xl px-4 py-3 w-full text-center font-medium focus:border-[#C5A059] focus:outline-none transition-colors"
                 placeholderText="Choose a date"
               />
             </div>
 
             {/* Time Picker */}
-            <div className="flex flex-col items-center mb-6">
-              <label className="font-semibold text-gray-800 mb-2">
-                Select appointment time:
+            <div className="mb-8">
+              <label className="flex items-center gap-2 font-semibold text-stone-900 mb-3 text-sm uppercase tracking-wider">
+                <Clock size={18} className="text-[#C5A059]" />
+                Select Time
               </label>
               <DatePicker
                 selected={selectedTime}
@@ -122,30 +151,39 @@ const ClientDashboard = () => {
                 timeIntervals={30}
                 timeCaption="Time"
                 dateFormat="h:mm aa"
-                className="border border-gray-300 rounded-lg px-4 py-2 w-full text-center"
+                className="border-2 border-stone-300 rounded-xl px-4 py-3 w-full text-center font-medium focus:border-[#C5A059] focus:outline-none transition-colors"
                 placeholderText="Choose a time"
               />
             </div>
 
             {/* Status Messages */}
-            <div className="text-center mb-4 h-6">
-              {loading && <p className="text-blue-600 font-medium">Booking in progress...</p>}
-              {error && <p className="text-red-600 font-medium">{error}</p>}
-              {success && <p className="text-green-600 font-medium">Booking confirmed!</p>}
+            <div className="text-center mb-6 min-h-[24px]">
+              {loading && (
+                <p className="text-[#C5A059] font-semibold animate-pulse">
+                  Booking in progress...
+                </p>
+              )}
+              {error && (
+                <p className="text-red-600 font-semibold">{error}</p>
+              )}
+              {success && (
+                <p className="text-green-600 font-semibold">✓ Booking confirmed!</p>
+              )}
             </div>
 
-            <div className="flex justify-center gap-4">
+            {/* Action Buttons */}
+            <div className="flex gap-4">
               <button
                 onClick={closeModal}
                 disabled={loading}
-                className="bg-gray-300 text-black px-4 py-2 rounded-lg hover:bg-gray-400 transition disabled:opacity-50"
+                className="flex-1 bg-stone-200 text-stone-900 px-6 py-3 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-stone-300 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Cancel
               </button>
               <button
                 onClick={handleBookingAppointment}
                 disabled={loading}
-                className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition disabled:opacity-50"
+                className="flex-1 bg-[#C5A059] text-white px-6 py-3 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-stone-900 transition-all shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {loading ? 'Booking...' : 'Confirm'}
               </button>
