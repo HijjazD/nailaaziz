@@ -94,7 +94,7 @@ const Navbar = () => {
               className={`px-6 py-2 rounded-full transition-all duration-300 border ${
                 scrolled 
                   ? 'border-stone-900 hover:bg-stone-900 hover:text-white' 
-                  : 'border-white/50 hover:bg-white hover:text-stone-900'
+                  : 'border-black/50 hover:bg-white hover:text-stone-900'
               }`}
             >
               Login
