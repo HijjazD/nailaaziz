@@ -4,7 +4,7 @@ import {ScrollTrigger} from 'gsap/all'
 import SplitType from "split-type"; 
 
 import { servicesCopy } from '../constants/services';
-
+import { Link } from "react-router-dom";
 gsap.registerPlugin(ScrollTrigger);
 
 const ServicesPage = () => {
@@ -212,9 +212,11 @@ const ServicesPage = () => {
                 </p>
             </div>
 
-            <button className="mt-4 px-8 py-3 bg-[#C5A059] text-white font-bold tracking-widest uppercase rounded-full hover:bg-stone-900 transition-all shadow-md hover:shadow-lg">
-                Book Now
-            </button>
+            <Link to="/client/dashboard">
+                <button className="mt-4 px-8 py-3 bg-[#C5A059] text-white font-bold tracking-widest uppercase rounded-full hover:bg-stone-900 transition-all shadow-md hover:shadow-lg">
+                    Book Now
+                </button>
+            </Link>
         </div>
 
         <div className="progress-bar absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[2.5px] h-[60%] bg-stone-200">
