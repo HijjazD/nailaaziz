@@ -78,10 +78,7 @@ const Footer = () => {
           <div>
             <h3 className="font-serif text-lg font-semibold mb-6 text-[#C5A059]">Get in Touch</h3>
             <ul className="space-y-4">
-              <li className="flex items-start gap-3 text-stone-400">
-                <MapPin size={18} className="text-[#C5A059] flex-shrink-0 mt-1" />
-                <span className="text-sm">123 Wellness Boulevard<br />Kuala Lumpur, Malaysia</span>
-              </li>
+              
               <li className="flex items-center gap-3 text-stone-400">
                 <Phone size={18} className="text-[#C5A059] flex-shrink-0" />
                 <span className="text-sm">(555) 123-4567</span>
