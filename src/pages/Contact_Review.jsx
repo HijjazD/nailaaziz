@@ -138,7 +138,7 @@ const Contact_Review = () => {
                         <Star size={20} fill='#C5A059' color='#C5A059'/>
                         <Star size={20} fill='#C5A059' color='#C5A059'/>
                     </div>
-                    <p className='text-stone-500 text-sm'>500+ Reviews</p>
+                    <p className='text-stone-500 text-sm'>0 Review</p>
                 </div>
                 
                 <div className="flex justify-center items-center py-10 pt-16 sm:pt-10 md:pt-20 lg:pt-16">
