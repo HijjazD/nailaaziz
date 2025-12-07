@@ -214,7 +214,7 @@ const Contact_Review = () => {
                             <div>
                                 <h3 className="font-serif text-2xl text-stone-900 mb-6">Visit Us</h3>
                                 <div className="space-y-4 text-stone-600">
-                                    <div className="flex items-start gap-4">
+                                    {/* <div className="flex items-start gap-4">
                                         <div className="w-12 h-12 bg-[#F9F8F4] rounded-full flex items-center justify-center flex-shrink-0">
                                             <span className="text-[#C5A059]">📍</span>
                                         </div>
@@ -222,7 +222,7 @@ const Contact_Review = () => {
                                             <p className="font-semibold text-stone-900 mb-1">Location</p>
                                             <p>123 Wellness Boulevard<br />Kuala Lumpur, Malaysia</p>
                                         </div>
-                                    </div>
+                                    </div> */}
 
                                     <div className="flex items-start gap-4">
                                         <div className="w-12 h-12 bg-[#F9F8F4] rounded-full flex items-center justify-center flex-shrink-0">
@@ -230,7 +230,7 @@ const Contact_Review = () => {
                                         </div>
                                         <div>
                                             <p className="font-semibold text-stone-900 mb-1">Phone</p>
-                                            <p>(555) 123-4567</p>
+                                            <p>010-961-2343</p>
                                         </div>
                                     </div>
 
@@ -240,7 +240,7 @@ const Contact_Review = () => {
                                         </div>
                                         <div>
                                             <p className="font-semibold text-stone-900 mb-1">Email</p>
-                                            <p>hello@nailasspa.com</p>
+                                            <p>lesser_trochanter@yahoo.com</p>
                                         </div>
                                     </div>
 
@@ -250,7 +250,7 @@ const Contact_Review = () => {
                                         </div>
                                         <div>
                                             <p className="font-semibold text-stone-900 mb-1">Hours</p>
-                                            <p>Mon - Sat: 9:00 AM - 7:00 PM<br />Sunday: By Appointment</p>
+                                            <p>Mon - Sat: 9:00 AM - 7:00 PM<br />Book Your Appointment Today</p>
                                         </div>
                                     </div>
                                 </div>
@@ -300,7 +300,7 @@ const Contact_Review = () => {
                                         type="tel"
                                         value={formData.phone}
                                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                        placeholder="(555) 123-4567"
+                                        placeholder="010-123-4567"
                                         className="w-full bg-white border border-stone-300 rounded-xl p-4 text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#C5A059] transition-all"
                                         required
                                     />
@@ -338,7 +338,7 @@ const Contact_Review = () => {
 
         {/* CARD 3 & 4 - Left as placeholders */}
         <div id='card-3' className="card-contact-review">
-  
+         
         </div>
 
       
